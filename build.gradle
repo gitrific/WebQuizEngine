@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+
+    // Apply the plugin which adds support for Kotlin/JVM
+    //id "org.jetbrains.kotlin.jvm" version "1.4.20-RC"
+
+    // Apply the application plugin to add support for building a CLI application
+    id "application"
+}
+
+group 'io.github.gitrific'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+application {
+    // Defines the main class for the application
+    mainClassName = "io.github.gitrific.WebQuizEngine"
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "io.github.gitrific.WebQuizEngine")   // for Groovy DSL
+    }
+}
